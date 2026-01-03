@@ -34,9 +34,8 @@
     <main>
         <section class="hero">
             <h1 x-text="content.hero_titulo || 'Cargando...'"></h1>
-            <p>Tu negocio visible, activo y vendiendo en 48 horas.</p>
             
-            <a :href="content.whatsapp_link" class="btn-ws" fetchpriority="high">
+            <a :href="content.whatsapp" class="btn-ws" fetchpriority="high">
                 QUIERO MI NEGOCIO DIGITAL
             </a>
         </section>
@@ -54,7 +53,7 @@
                        <li>✔ Botón a WhatsApp</li>
                        <li>✔ Entrega en 48 horas</li>
                    </ul>
-                   <a :href="'https://wa.me/51933391624?text=Hola! Quiero el Plan Emprendedor para ' + content.nombre_negocio" class="btn-plan">Elegir Plan</a>
+                   <a :href="'https://wa.me/51933391624?text=Hola! Quiero el Plan Emprendedor" class="btn-plan">Elegir Plan</a>
                </div>
 
                <div class="plan-card featured">
