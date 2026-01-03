@@ -1,0 +1,23 @@
+# --- Base de Datos y Datos Sensibles ---
+pb_data/
+backups/
+
+# --- Binarios y Ejecutables ---
+*.exe
+pocketbase
+*.dll
+*.so
+*.dylib
+
+# --- Sistema y Editores ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Logs y Temporales ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.tmp/

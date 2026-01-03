@@ -54,7 +54,7 @@
                 content: {},
                 async fetchData() {
                     // Llamada directa a la API interna de PocketBase
-                    const res = await fetch('/api/collections/config/records');
+                    const res = await fetch('ttps://gato88-clicklisto-api.hf.space/api/collections/landing_info/records');
                     const data = await res.json();
                     this.content = data.items[0];
                     this.loaded = true;

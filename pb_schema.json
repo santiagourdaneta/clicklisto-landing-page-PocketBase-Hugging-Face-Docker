@@ -1,0 +1,36 @@
+[
+  {
+    "name": "config",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "name": "nombre_negocio",
+        "type": "text",
+        "required": true,
+        "options": { "min": 3, "max": 30 }
+      },
+      {
+        "name": "hero_titulo",
+        "type": "text",
+        "required": true,
+        "options": { "min": 10, "max": 100 }
+      },
+      {
+        "name": "whatsapp",
+        "type": "url",
+        "required": true
+      },
+      {
+        "name": "precio_emprendedor",
+        "type": "number",
+        "options": { "min": 1 }
+      }
+    ],
+    "listRule": "",
+    "viewRule": "",
+    "createRule": null,
+    "updateRule": null,
+    "deleteRule": null
+  }
+]
