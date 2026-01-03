@@ -31,6 +31,19 @@
               const data = await res.json(); 
               content = data.items[0];">
 
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">🚀</span>
+                <span class="logo-text">ClickListo</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#planes" class="nav-btn-small">Ver Planes</a>
+            </div>
+        </div>
+    </nav>
+
     <main>
         <section class="hero">
             <h1 x-text="content.hero_titulo || 'Cargando...'"></h1>
@@ -40,7 +53,7 @@
             </a>
         </section>
 
-       <section class="planes-container">
+       <section class="planes-container" id="#planes">
            <h2 class="section-title">Planes Simples para tu Negocio</h2>
            
            <div class="planes-grid">
