@@ -36,31 +36,99 @@
             </a>
         </section>
 
-        <section class="grid-planes">
-            <div class="card">
-                <h3>Plan Emprendedor</h3>
-                <p>S/ 399</p>
-                <button hx-get="/contacto-fragment.html" hx-target="#modal">Saber más</button>
-            </div>
-        </section>
+       <section class="planes-container">
+           <h2 class="section-title">Planes Simples para tu Negocio</h2>
+           
+           <div class="planes-grid">
+               <div class="plan-card">
+                   <span class="tag">Popular</span>
+                   <h3>Plan Emprendedor</h3>
+                   <div class="price">S/ 399 <span>pago único</span></div>
+                   <ul class="features">
+                       <li>✔ Página web (1 sección)</li>
+                       <li>✔ Botón a WhatsApp</li>
+                       <li>✔ Entrega en 48 horas</li>
+                   </ul>
+                   <a :href="'https://wa.me/51933391624?text=Hola! Quiero el Plan Emprendedor para ' + content.nombre_negocio" class="btn-plan">Elegir Plan</a>
+               </div>
+
+               <div class="plan-card featured">
+                   <h3>Negocio Activo</h3>
+                   <div class="price">S/ 599 <span>pago único</span></div>
+                   <ul class="features">
+                       <li>✔ Todo el Plan Emprendedor</li>
+                       <li>✔ Catálogo digital</li>
+                       <li>✔ Google Maps optimizado</li>
+                   </ul>
+                   <a :href="'https://wa.me/51933391624?text=Hola! Quiero el Plan Negocio Activo'" class="btn-plan primary">Elegir Plan</a>
+               </div>
+           </div>
+       </section>
+
     </main>
 
     <div id="modal"></div>
 
     <script>
-        function landingData() {
-            return {
-                loaded: false,
-                content: {},
-                async fetchData() {
-                    // Llamada directa a la API interna de PocketBase
-                    const res = await fetch('ttps://gato88-clicklisto-api.hf.space/api/collections/landing_info/records');
-                    const data = await res.json();
-                    this.content = data.items[0];
-                    this.loaded = true;
-                }
-            }
-        }
+       async function fetchData() {
+           // Agregamos un timestamp para evitar que el navegador use caché vieja
+           const url = 'https://gato88-clicklisto-api.hf.space/api/collections/config/records?nocache=' + Date.now();
+           
+           try {
+               const res = await fetch(url, {
+                   method: 'GET',
+                   headers: { 'Content-Type': 'application/json' }
+               });
+               
+               if (!res.ok) throw new Error('Error en la red');
+               
+               const data = await res.json();
+               if (data.items.length > 0) {
+                   this.content = data.items[0];
+                   this.loaded = true;
+               }
+           } catch (err) {
+               console.log("Error silencioso:", err);
+               // Datos de respaldo por si la API falla 
+               this.content = { 
+                   nombre_negocio: "ClickListo", 
+                   hero_titulo: "Tu negocio en internet hoy mismo" 
+               };
+               this.loaded = true;
+           }
+       }
     </script>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="garantia-box">
+                <div class="garantia-icon">🛡️</div>
+                <h3>Garantía de Satisfacción</h3>
+                <p>Si no te gusta el diseño inicial, lo ajustamos sin costo adicional. Tu éxito digital es nuestra prioridad número uno.</p>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h4>ClickListo</h4>
+                    <p>Digitalizando el esfuerzo de los negocios locales desde 2022.</p>
+                </div>
+
+                <div class="footer-socials">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="LinkedIn">IN</a>
+                        <a href="https://wa.me/51933391624" class="footer-ws">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ClickListo – Soluciones Digitales. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

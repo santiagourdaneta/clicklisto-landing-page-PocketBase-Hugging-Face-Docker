@@ -86,3 +86,164 @@ img {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+.planes-container {
+    padding: 4rem 1rem;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.8rem;
+}
+
+.planes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.plan-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.plan-card.featured {
+    border: 2px solid #0070f3;
+    transform: scale(1.05);
+}
+
+.tag {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0070f3;
+    color: white;
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+}
+
+.price span {
+    font-size: 0.9rem;
+    display: block;
+    color: #666;
+}
+
+.features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.features li {
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+}
+
+.btn-plan {
+    display: block;
+    padding: 1rem;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-plan.primary {
+    background: #0070f3;
+}
+
+.main-footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 4rem 1rem 1rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Caja de Garantía - Principio de Confianza */
+.garantia-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed #0070f3;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.garantia-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.garantia-box h3 {
+    color: #0070f3;
+    margin-bottom: 0.5rem;
+}
+
+/* Grid del Footer */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    border-top: 1px solid #333;
+    padding-top: 2rem;
+}
+
+.footer-info h4, .footer-socials h4 {
+    margin-bottom: 1.2rem;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.footer-info p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+}
+
+.social-links a:hover {
+    border-bottom: 1px solid #0070f3;
+}
+
+.footer-ws {
+    color: #25D366 !important;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+    color: #666;
+}
