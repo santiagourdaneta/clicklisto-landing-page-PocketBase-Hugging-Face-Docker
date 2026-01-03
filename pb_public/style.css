@@ -1,0 +1,88 @@
+/* 1. Reset básico para ahorrar memoria de renderizado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0070f3;
+    --text: #333;
+    --bg: #ffffff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--text);
+    background-color: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. Grid System para celulares viejos (Mobile First) */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 3. Hero Section - Velocidad de carga */
+.hero {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #f0f4f8; /* Color sólido, evita degradados CPU-intensivos */
+    border-radius: 12px;
+}
+
+h1 {
+    font-size: 2rem; /* Tamaño seguro para pantallas pequeñas */
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+/* 4. Botón optimizado para UX (Amigable al pulgar) */
+.btn-ws {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra ligera */
+    transition: transform 0.2s ease;
+}
+
+.btn-ws:active {
+    transform: scale(0.95); /* Feedback táctil instantáneo */
+}
+
+/* 5. Imagen optimizada */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    content-visibility: auto; /* Optimización moderna para scroll */
+}
+
+/* 6. Tablet/Desktop (Pantallas > 600px) */
+@media (min-width: 600px) {
+    h1 { font-size: 3rem; }
+    .hero { padding: 5rem 2rem; }
+}
+
+/* Loader ligero */
+.loader {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

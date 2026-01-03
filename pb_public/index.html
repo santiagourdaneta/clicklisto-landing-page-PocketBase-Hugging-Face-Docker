@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>ClickListo – Tu negocio online en 48 horas</title>
+    <meta name="description" content="Digitalizamos tu bodega, restaurante o servicio. Web simple, WhatsApp optimizado y Google Maps. ¡Paga una vez, vende siempre!">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clicklisto.com/">
+    <meta property="og:title" content="🚀 ClickListo | Tu negocio visible y vendiendo ya">
+    <meta property="og:description" content="Web Express + WhatsApp + Google Maps para negocios pequeños. Desde S/ 399. ¡Entrega en 48h!">
+    <meta property="og:image" content="pb_image/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ClickListo – Soluciones Digitales">
+    <meta name="twitter:description" content="Página web, catálogo digital y Google Maps para emprendedores.">
+    <meta name="twitter:image" content="pb_image/logo.png">
+
+    <meta property="og:site_name" content="ClickListo">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body x-data="{ content: {} }" x-init="content = await (await fetch('/api/collections/landing_info/records')).json().then(d => d.items[0])">
+
+    <main>
+        <section class="hero">
+            <h1 x-text="content.hero_titulo || 'Cargando...'"></h1>
+            <p>Tu negocio visible, activo y vendiendo en 48 horas.</p>
+            
+            <a :href="content.whatsapp_link" class="btn-ws" fetchpriority="high">
+                QUIERO MI NEGOCIO DIGITAL
+            </a>
+        </section>
+
+        <section class="grid-planes">
+            <div class="card">
+                <h3>Plan Emprendedor</h3>
+                <p>S/ 399</p>
+                <button hx-get="/contacto-fragment.html" hx-target="#modal">Saber más</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal"></div>
+
+    <script>
+        function landingData() {
+            return {
+                loaded: false,
+                content: {},
+                async fetchData() {
+                    // Llamada directa a la API interna de PocketBase
+                    const res = await fetch('/api/collections/config/records');
+                    const data = await res.json();
+                    this.content = data.items[0];
+                    this.loaded = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
