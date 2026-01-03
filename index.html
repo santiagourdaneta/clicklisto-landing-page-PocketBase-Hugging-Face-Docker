@@ -23,8 +23,13 @@
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
 </head>
-<body x-data="{ content: {} }" x-init="content = await (await fetch('/api/collections/landing_info/records')).json().then(d => d.items[0])">
+<body x-data="{ content: {} }" 
+      x-init="const res = await fetch('https://gato88-clicklisto-api.hf.space/api/collections/config/records'); 
+              const data = await res.json(); 
+              content = data.items[0];">
 
     <main>
         <section class="hero">
