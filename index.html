@@ -53,7 +53,7 @@
             </a>
         </section>
 
-       <section class="planes-container" id="#planes">
+       <section class="planes-container" id="planes">
            <h2 class="section-title">Planes Simples para tu Negocio</h2>
            
            <div class="planes-grid">
@@ -66,7 +66,7 @@
                        <li>✔ Botón a WhatsApp</li>
                        <li>✔ Entrega en 48 horas</li>
                    </ul>
-                   <a :href="'https://wa.me/51933391624?text=Hola! Quiero el Plan Emprendedor" class="btn-plan">Elegir Plan</a>
+                   <a :href="'https://wa.me/51933391624?text=Hola! Quiero el Plan Emprendedor'" class="btn-plan">Elegir Plan</a>
                </div>
 
                <div class="plan-card featured">
@@ -85,36 +85,6 @@
     </main>
 
     <div id="modal"></div>
-
-    <script>
-       async function fetchData() {
-           // Agregamos un timestamp para evitar que el navegador use caché vieja
-           const url = 'https://gato88-clicklisto-api.hf.space/api/collections/config/records?nocache=' + Date.now();
-           
-           try {
-               const res = await fetch(url, {
-                   method: 'GET',
-                   headers: { 'Content-Type': 'application/json' }
-               });
-               
-               if (!res.ok) throw new Error('Error en la red');
-               
-               const data = await res.json();
-               if (data.items.length > 0) {
-                   this.content = data.items[0];
-                   this.loaded = true;
-               }
-           } catch (err) {
-               console.log("Error silencioso:", err);
-               // Datos de respaldo por si la API falla 
-               this.content = { 
-                   nombre_negocio: "ClickListo", 
-                   hero_titulo: "Tu negocio en internet hoy mismo" 
-               };
-               this.loaded = true;
-           }
-       }
-    </script>
 
     <footer class="main-footer">
         <div class="footer-content">
@@ -146,6 +116,36 @@
             </div>
         </div>
     </footer>
+
+    <script>
+       async function fetchData() {
+           // Agregamos un timestamp para evitar que el navegador use caché vieja
+           const url = 'https://gato88-clicklisto-api.hf.space/api/collections/config/records?nocache=' + Date.now();
+           
+           try {
+               const res = await fetch(url, {
+                   method: 'GET',
+                   headers: { 'Content-Type': 'application/json' }
+               });
+               
+               if (!res.ok) throw new Error('Error en la red');
+               
+               const data = await res.json();
+               if (data.items.length > 0) {
+                   this.content = data.items[0];
+                   this.loaded = true;
+               }
+           } catch (err) {
+               console.log("Error silencioso:", err);
+               // Datos de respaldo por si la API falla 
+               this.content = { 
+                   nombre_negocio: "ClickListo", 
+                   hero_titulo: "Tu negocio en internet hoy mismo" 
+               };
+               this.loaded = true;
+           }
+       }
+    </script>
 
 </body>
 </html>
